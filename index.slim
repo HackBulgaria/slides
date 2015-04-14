@@ -1,0 +1,46 @@
+doctype html
+
+html
+  head
+    meta charset="utf-8"
+
+    title
+
+    meta name="description" content=""
+    meta name="author" content=""
+
+    link rel="stylesheet" href="css/reveal.css"
+    link rel="stylesheet" href="css/simple.css"
+    link rel="stylesheet" href="css/googlecode.css"
+
+  body
+    div.reveal
+      div.slides
+        == yield
+
+    script src="js/head.min.js"
+    script src="js/reveal.js"
+
+    javascript:
+      Reveal.initialize({
+        width:  '100%',
+        height: '100%',
+        margin: 0.05,
+        controls: false,
+        progress: false,
+        history: true,
+        center: false,
+        rollingLinks: true,
+        transition: 'none',
+        backgroundTransition: 'none',
+        dependencies: [
+          {
+            src: 'js/highlight.js',
+            async: true,
+            callback: function() {
+              hljs.configure({ languages: ['ruby'] });
+              hljs.initHighlightingOnLoad();
+            }
+          }
+        ]
+      });
